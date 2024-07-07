@@ -1,0 +1,22 @@
+<?php
+  
+  $connection = mysqli_connect('localhost','root','','login_db');
+
+  if(isset($_POST['send'])){
+    $username = $_POST['username'];
+    $mobile = $_POST['mobile'];
+    $password = $_POST['password'];
+
+    $request = ("insert into login_form(username, mobile, password) values ('$username', '$mobile', '$password')");
+
+    mysqli_query($connection, $request);
+
+    
+    header('location:index.php');
+    
+  }else{
+    echo'Something went wrong try again';
+    error_reporting( E_ALL );
+  }
+
+?>
